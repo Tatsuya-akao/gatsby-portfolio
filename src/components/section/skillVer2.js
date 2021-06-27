@@ -238,7 +238,6 @@ const category = css`
   align-items: center;
   justify-content: flex-start;
   color: #fff;
-  color: red;
   font-weight: bold;
   letter-spacing: 0.1em;
   margin-bottom: 40px;
