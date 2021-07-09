@@ -11,7 +11,7 @@ import { GatsbyContext } from "../context/context"
 
 const Header = ({ setHeaderHeight, headerHeight, scroll }) => {
   const headerEl = useRef(null)
-  const { showNav } = useContext(GatsbyContext)
+  const { showNav } = useContext(GatsbyContext) || { showNav: 0 }
 
   useEffect(() => {
     setHeaderHeight(headerEl.current.clientHeight)

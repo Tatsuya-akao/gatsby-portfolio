@@ -7,7 +7,10 @@ import { GatsbyContext } from "../context/context"
 
 const Layout = ({ children, mvHeight }) => {
   // const data = useContext(GatsbyContext)
-  const { isNavOpen, hideNav } = useContext(GatsbyContext)
+  const { isNavOpen, hideNav } = useContext(GatsbyContext) || {
+    isNavOpen: false,
+    hideNav: null,
+  }
   const [headerHeight, setHeaderHeight] = useState(0)
   const [scroll, setScroll] = useState(false)
 

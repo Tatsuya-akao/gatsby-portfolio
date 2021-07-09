@@ -6,7 +6,6 @@ import SkillVer2 from "../components/section/skillVer2"
 import Works from "../components/section/works/works"
 import Blog from "../components/section/blog"
 import Contact from "../components/section/contact"
-// import Contact from "../components/section/contact/pattern2"
 
 export default function Home() {
   const [mvHeight, setMvHeight] = useState(0)
