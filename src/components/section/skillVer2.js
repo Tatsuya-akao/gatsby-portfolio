@@ -342,6 +342,7 @@ const skillBarLabel = css`
 
 const skillTitle = css`
   display: flex;
+  font-family: ${font.roboto};
   font-size: 2rem;
   letter-spacing: 0.1em;
 
@@ -362,7 +363,7 @@ const skillDate = css`
   font-size: 1.5rem;
 
   ${mq("tab")} {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 `
 

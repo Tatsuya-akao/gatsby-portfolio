@@ -78,7 +78,7 @@ const worksData = [
     id: "cotoit",
     title: "株式会社CotoIT",
     labels: ["コーディング", "デザイン", "WordPress"],
-    url: "http://islandex.co.jp/",
+    url: "https://cotoit.co.jp/",
     imgUrl: "works-portfolio.png",
   },
 ]
