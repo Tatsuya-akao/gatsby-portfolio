@@ -1,6 +1,7 @@
 import React from "react"
 import { css } from "@emotion/react"
 import { color, font } from "../../styles/variables"
+import { mq } from "../../styles/mq"
 
 const title = ({ titleText, headLevel, titleColor, titleType }) => {
   const CustomTag = `h${headLevel}`
@@ -28,6 +29,14 @@ const titleStyle = css`
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-align: center;
+
+  ${mq("tab")} {
+    font-size: 4rem;
+  }
+
+  ${mq("sp")} {
+    font-size: 3.2rem;
+  }
 `
 
 const titleSubStyle = css`
@@ -39,6 +48,14 @@ const titleSubStyle = css`
   letter-spacing: 0.1em;
   text-align: left;
   padding: 0.1em 0 0.1em 2em;
+
+  ${mq("tab")} {
+    font-size: 2.8rem;
+  }
+
+  ${mq("sp")} {
+    font-size: 2.4rem;
+  }
 
   &::before {
     content: "";

@@ -3,6 +3,7 @@ import { css } from "@emotion/react"
 import { rgba } from "emotion-rgba"
 import { color } from "../../../styles/variables"
 import { HiExternalLink } from "react-icons/hi"
+import { mq } from "../../../styles/mq"
 
 const worksItem = ({ work }) => {
   const { link, title, image, labels } = work
@@ -35,6 +36,16 @@ const itemStyle = css`
   margin-right: 3.5%;
   margin-top: 6rem;
 
+  ${mq("tab")} {
+    width: calc(50% - 2.66%);
+    margin-right: 0;
+    margin-top: 4rem;
+  }
+
+  ${mq("sp")} {
+    width: 100%;
+  }
+
   &:nth-of-type(3n) {
     margin-right: 0;
   }
@@ -48,6 +59,11 @@ const itemLink = css`
   box-shadow: 0 6px 10px ${rgba("#000", 0.2)};
   overflow: hidden;
   cursor: pointer;
+  transition: all 0.4s;
+
+  ${mq("tab")} {
+    box-shadow: 0 3px 5px ${rgba("#000", 0.1)};
+  }
 
   img {
     width: 100%;
@@ -74,15 +90,15 @@ const itemLink = css`
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(100%);
-    transition: all 0.2s;
+    transition: all 0.4s;
   }
 
   &:hover {
+    transform: translateY(-0.8rem);
+
     .overlay {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
     }
   }
 `
@@ -90,6 +106,10 @@ const itemLink = css`
 const overlayText = css`
   font-size: 1.6rem;
   margin-bottom: 1rem;
+
+  ${mq("tab")} {
+    font-size: 1.4rem;
+  }
 `
 
 const worksTitle = css`
@@ -101,6 +121,11 @@ const worksTitle = css`
   text-align: left;
   position: relative;
   padding: 0.5rem 0 0.5rem 0;
+
+  ${mq("tab")} {
+    font-size: 1.5rem;
+    margin: 1.2rem auto 0;
+  }
 `
 
 const labelList = css`
@@ -114,10 +139,15 @@ const labelStyle = css`
   padding: 0.6rem 0.8rem;
   border-radius: 50px;
   margin-right: 1rem;
-  letter-spacing: 0.05em;
   margin-top: 1rem;
+  letter-spacing: 0.05em;
   color: #fff;
   background-color: #287ae0;
+
+  ${mq("tab")} {
+    margin-top: 0.6rem;
+    margin-right: 0.6rem;
+  }
 `
 
 export default worksItem

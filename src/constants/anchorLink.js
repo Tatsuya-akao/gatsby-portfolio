@@ -2,27 +2,29 @@ const data = [
   {
     id: 1,
     text: "profile",
-    link: "/#profile",
+    path: "#profile",
   },
   {
     id: 2,
-    text: "works",
-    link: "/#works",
+    text: "skill",
+    path: "#skill",
+    offset: true,
   },
   {
     id: 3,
-    text: "service",
-    link: "/#service",
+    text: "works",
+    path: "#works",
   },
   {
     id: 4,
-    text: "price",
-    link: "/#price",
+    text: "blog",
+    path: "#blog",
+    offset: true,
   },
   {
     id: 5,
     text: "contact",
-    link: "/#contact",
+    path: "#contact",
   },
 ]
 

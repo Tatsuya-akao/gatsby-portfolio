@@ -1,13 +1,13 @@
 import React from "react"
 import { css } from "@emotion/react"
 import { color } from "../../../styles/variables"
+import { mq } from "../../../styles/mq"
 
 const blogItem = props => {
-  const { title, url, imgUrl } = props
+  const { url, imgUrl } = props
 
   return (
     <li css={blogCard}>
-      {/* <h3>{title}</h3> */}
       <a href={url} target="_blank" rel="noopener noreferrer">
         {imgUrl}
       </a>
@@ -23,9 +23,23 @@ const blogCard = css`
   background-color: ${color.white};
   transition: all 0.2s ease-out;
 
+  ${mq("tab")} {
+    width: calc(50% - 2.66%);
+    margin-right: 0;
+    margin-top: 5.33%;
+  }
+
+  ${mq("sp")} {
+    width: 100%;
+  }
+
   &:hover {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.06);
-    transform: scale(1.06);
+    transform: translateY(-0.8rem);
+
+    ${mq("tab")} {
+      transform: translateY(-0.8rem);
+    }
   }
 
   &:nth-of-type(3n) {

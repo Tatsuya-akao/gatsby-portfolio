@@ -5,6 +5,8 @@ import Container from "../../container"
 import Title from "../../title/title"
 import WorksList from "./worksList"
 import InfoBox from "../../block/infoBox"
+import Wave from "../../Wave"
+import { mq } from "../../../styles/mq"
 
 const Works = () => {
   const data = useStaticQuery(graphql`
@@ -31,8 +33,8 @@ const Works = () => {
   } = data
 
   return (
-    <section css={sectionWorks}>
-      <Container>
+    <section css={sectionWorks} id="works">
+      <Container css={container}>
         <Title titleText="works" headLevel="2" titleType="main" />
         <WorksList works={works} />
         <InfoBox>
@@ -47,12 +49,22 @@ const Works = () => {
           </p>
         </InfoBox>
       </Container>
+      <Wave position="bottom-negative" />
     </section>
   )
 }
 
 const sectionWorks = css`
+  position: relative;
   padding: 10rem 0;
+
+  ${mq("sp")} {
+    padding: 6rem 0 10rem;
+  }
+`
+
+const container = css`
+  max-width: 36rem;
 `
 
 export default Works

@@ -4,6 +4,7 @@ import { color, font } from "../../../styles/variables"
 import Title from "../../title/title"
 import myAge from "./myAge"
 import myPic from "../../../img/me.jpg"
+import { mq } from "../../../styles/mq"
 
 const about = () => {
   return (
@@ -43,12 +44,20 @@ const about = () => {
 const sectionAbout = css`
   margin-top: 8rem;
   padding: 0 4rem;
+
+  ${mq("tab")} {
+    padding: 0;
+  }
 `
 
 const aboutCols = css`
   display: flex;
   justify-content: space-between;
   margin-top: 4rem;
+
+  ${mq("tab")} {
+    flex-wrap: wrap;
+  }
 `
 
 const aboutImgCol = css`
@@ -56,6 +65,16 @@ const aboutImgCol = css`
   width: 25%;
   flex-shrink: 0;
   margin-right: 6rem;
+
+  ${mq("pc")} {
+    margin-right: 5rem;
+    width: 28%;
+  }
+
+  ${mq("tab")} {
+    width: 24rem;
+    margin: 0 auto;
+  }
 `
 
 const aboutImgWrap = css`
@@ -91,6 +110,20 @@ const aboutDescCol = css`
   font-size: 1.8rem;
   line-height: 2;
   width: calc(75% - 6rem);
+
+  ${mq("pc")} {
+    width: calc(72% - 5rem);
+  }
+
+  ${mq("tab")} {
+    width: 100%;
+    font-size: 1.6rem;
+    margin-top: 4rem;
+  }
+
+  ${mq("sp")} {
+    font-size: 1.5rem;
+  }
 `
 
 const aboutDescRow = css`
@@ -98,13 +131,26 @@ const aboutDescRow = css`
   padding: 1.6rem;
   border-bottom: 2px dashed #ccc;
 
+  ${mq("tab")} {
+    padding: 1rem;
+  }
+
+  ${mq("sp")} {
+    flex-wrap: wrap;
+    padding: 1.4rem 0;
+  }
+
   dt {
     font-family: ${font.roboto};
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.1em;
     color: ${color.main};
     width: 12rem;
     flex-shrink: 0;
+
+    ${mq("sp")} {
+      width: 100%;
+    }
   }
 
   dd {

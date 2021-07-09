@@ -1,12 +1,13 @@
 import React from "react"
-import { css, keyframes } from "@emotion/react"
+import { css } from "@emotion/react"
 import skillset from "../../constants/skillset"
 import Container from "../container"
 import { color, font } from "../../styles/variables"
 import gradientBg from "../../img/gradient.jpg"
-import waveImg from "../../img/wave.svg"
-import Bubbles from "../bubbles"
+import Bubbles from "../Bubbles"
 import Title from "../title/title"
+import { mq } from "../../styles/mq"
+import Wave from "../Wave"
 
 const getYearNum = startedDateValue => {
   const today = new Date()
@@ -41,10 +42,26 @@ const getDateStr = (num, str, className) => {
 }
 
 const Skill = () => {
+  const frontEndItems = skillset.filter(skill => {
+    return skill.category === "front-end"
+  })
+
+  const backEndItems = skillset.filter(skill => {
+    return skill.category === "back-end"
+  })
+
+  const cmsItems = skillset.filter(skill => {
+    return skill.category === "cms"
+  })
+
+  const designItems = skillset.filter(skill => {
+    return skill.category === "design"
+  })
+
   return (
-    <section css={skillSection}>
+    <section css={skillSection} id="skill">
       <Container>
-        <Bubbles bubbleCount="20" />
+        <Bubbles bubbleCount="20" bubbleCountSp="40" />
         <Title
           titleText="Skill"
           headLevel="2"
@@ -54,31 +71,29 @@ const Skill = () => {
         <div css={skillCat}>
           <p css={category}>Front-End</p>
           <ul css={skillList}>
-            {skillset.map(item => {
-              if (item.category === "front-end") {
-                const totalYear = getYearNum(item.started)
-                const totalMonth = getMonthNum(item.started)
-                return (
-                  <li css={skill} key={item.id}>
-                    <h4 css={skillTitle}>
-                      <span css={skillIcon}>{item.icon}</span>
-                      {item.text}
-                    </h4>
-                    <div css={skillBarContainer}>
-                      <span
-                        css={skillBar}
-                        style={{ width: `${item.proficiency}%` }}
-                      ></span>
-                      <span css={skillBarLabel}>{item.proficiency}%</span>
-                    </div>
-                    <p css={skillDate}>
-                      {getDateStr(totalYear, "year", numStyle)}
-                      {totalYear === 0 || totalMonth == 0 ? "" : " and "}
-                      {getDateStr(totalMonth, "month", numStyle)}
-                    </p>
-                  </li>
-                )
-              }
+            {frontEndItems.map(item => {
+              const totalYear = getYearNum(item.started)
+              const totalMonth = getMonthNum(item.started)
+              return (
+                <li css={skill} key={item.id}>
+                  <h4 css={skillTitle}>
+                    <span css={skillIcon}>{item.icon}</span>
+                    {item.text}
+                  </h4>
+                  <div css={skillBarContainer}>
+                    <span
+                      css={skillBar}
+                      style={{ width: `${item.proficiency}%` }}
+                    ></span>
+                    <span css={skillBarLabel}>{item.proficiency}%</span>
+                  </div>
+                  <p css={skillDate}>
+                    {getDateStr(totalYear, "year", numStyle)}
+                    {totalYear === 0 || totalMonth === 0 ? "" : " and "}
+                    {getDateStr(totalMonth, "month", numStyle)}
+                  </p>
+                </li>
+              )
             })}
           </ul>
         </div>
@@ -86,32 +101,30 @@ const Skill = () => {
         <div css={skillCat}>
           <p css={category}>Back-End</p>
           <ul css={skillList}>
-            {skillset.map(item => {
+            {backEndItems.map(item => {
               const totalYear = getYearNum(item.started)
               const totalMonth = getMonthNum(item.started)
 
-              if (item.category === "back-end") {
-                return (
-                  <li css={skill} key={item.id}>
-                    <h4 css={skillTitle}>
-                      <span css={skillIcon}>{item.icon}</span>
-                      {item.text}
-                    </h4>
-                    <div css={skillBarContainer}>
-                      <span
-                        css={skillBar}
-                        style={{ width: `${item.proficiency}%` }}
-                      ></span>
-                      <span css={skillBarLabel}>{item.proficiency}%</span>
-                    </div>
-                    <p css={skillDate}>
-                      {getDateStr(totalYear, "year", numStyle)}
-                      {totalYear === 0 || totalMonth == 0 ? "" : " and "}
-                      {getDateStr(totalMonth, "month", numStyle)}
-                    </p>
-                  </li>
-                )
-              }
+              return (
+                <li css={skill} key={item.id}>
+                  <h4 css={skillTitle}>
+                    <span css={skillIcon}>{item.icon}</span>
+                    {item.text}
+                  </h4>
+                  <div css={skillBarContainer}>
+                    <span
+                      css={skillBar}
+                      style={{ width: `${item.proficiency}%` }}
+                    ></span>
+                    <span css={skillBarLabel}>{item.proficiency}%</span>
+                  </div>
+                  <p css={skillDate}>
+                    {getDateStr(totalYear, "year", numStyle)}
+                    {totalYear === 0 || totalMonth === 0 ? "" : " and "}
+                    {getDateStr(totalMonth, "month", numStyle)}
+                  </p>
+                </li>
+              )
             })}
           </ul>
         </div>
@@ -119,32 +132,30 @@ const Skill = () => {
         <div css={skillCat}>
           <p css={category}>CMS</p>
           <ul css={skillList}>
-            {skillset.map(item => {
+            {cmsItems.map(item => {
               const totalYear = getYearNum(item.started)
               const totalMonth = getMonthNum(item.started)
 
-              if (item.category === "cms") {
-                return (
-                  <li css={skill} key={item.id}>
-                    <h4 css={skillTitle}>
-                      <span css={skillIcon}>{item.icon}</span>
-                      {item.text}
-                    </h4>
-                    <div css={skillBarContainer}>
-                      <span
-                        css={skillBar}
-                        style={{ width: `${item.proficiency}%` }}
-                      ></span>
-                      <span css={skillBarLabel}>{item.proficiency}%</span>
-                    </div>
-                    <p css={skillDate}>
-                      {getDateStr(totalYear, "year", numStyle)}
-                      {totalYear === 0 || totalMonth == 0 ? "" : " and "}
-                      {getDateStr(totalMonth, "month", numStyle)}
-                    </p>
-                  </li>
-                )
-              }
+              return (
+                <li css={skill} key={item.id}>
+                  <h4 css={skillTitle}>
+                    <span css={skillIcon}>{item.icon}</span>
+                    {item.text}
+                  </h4>
+                  <div css={skillBarContainer}>
+                    <span
+                      css={skillBar}
+                      style={{ width: `${item.proficiency}%` }}
+                    ></span>
+                    <span css={skillBarLabel}>{item.proficiency}%</span>
+                  </div>
+                  <p css={skillDate}>
+                    {getDateStr(totalYear, "year", numStyle)}
+                    {totalYear === 0 || totalMonth === 0 ? "" : " and "}
+                    {getDateStr(totalMonth, "month", numStyle)}
+                  </p>
+                </li>
+              )
             })}
           </ul>
         </div>
@@ -152,37 +163,35 @@ const Skill = () => {
         <div css={skillCat}>
           <p css={category}>Design Tools</p>
           <ul css={skillList}>
-            {skillset.map(item => {
+            {designItems.map(item => {
               const totalYear = getYearNum(item.started)
               const totalMonth = getMonthNum(item.started)
 
-              if (item.category === "design") {
-                return (
-                  <li css={skill} key={item.id}>
-                    <h4 css={skillTitle}>
-                      <span css={skillIcon}>{item.icon}</span>
-                      {item.text}
-                    </h4>
-                    <div css={skillBarContainer}>
-                      <span
-                        css={skillBar}
-                        style={{ width: `${item.proficiency}%` }}
-                      ></span>
-                      <span css={skillBarLabel}>{item.proficiency}%</span>
-                    </div>
-                    <p css={skillDate}>
-                      {getDateStr(totalYear, "year", numStyle)}
-                      {totalYear === 0 || totalMonth == 0 ? "" : " and "}
-                      {getDateStr(totalMonth, "month", numStyle)}
-                    </p>
-                  </li>
-                )
-              }
+              return (
+                <li css={skill} key={item.id}>
+                  <h4 css={skillTitle}>
+                    <span css={skillIcon}>{item.icon}</span>
+                    {item.text}
+                  </h4>
+                  <div css={skillBarContainer}>
+                    <span
+                      css={skillBar}
+                      style={{ width: `${item.proficiency}%` }}
+                    ></span>
+                    <span css={skillBarLabel}>{item.proficiency}%</span>
+                  </div>
+                  <p css={skillDate}>
+                    {getDateStr(totalYear, "year", numStyle)}
+                    {totalYear === 0 || totalMonth === 0 ? "" : " and "}
+                    {getDateStr(totalMonth, "month", numStyle)}
+                  </p>
+                </li>
+              )
             })}
           </ul>
         </div>
-        <div css={waveWrap}></div>
       </Container>
+      <Wave position="bottom" />
     </section>
   )
 }
@@ -201,34 +210,28 @@ const skillSection = css`
     #65c7f7 50%,
     #0052d4 100%
   );
-  padding: 220px 0 100px;
+  padding: 24rem 0 24rem;
   /* background-image: url(${gradientBg}); */
   background-size: contain;
   background-position: center bottom;
   background-repeat: no-repeat;
   position: relative;
+
+  ${mq("sp")} {
+    padding: 16rem 0;
+  }
 `
 
 const skillCat = css`
   padding: 5rem 0;
   position: relative;
 
-  &:not(:first-of-type) {
-    margin-top: 30px;
+  ${mq("tab")} {
+    padding: 3rem 0;
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: -20%;
-    top: 10%;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background-image: linear-gradient(-45deg, #5cffe1 0%, #9adeff 100%);
-
-    display: none;
-    z-index: 0;
+  &:not(:first-of-type) {
+    margin-top: 3rem;
   }
 `
 
@@ -240,9 +243,13 @@ const category = css`
   color: #fff;
   font-weight: bold;
   letter-spacing: 0.1em;
-  margin-bottom: 40px;
-  font-size: 24px;
+  margin-bottom: 4rem;
+  font-size: 2.4rem;
   padding: 0.1em 0 0.1em 2em;
+
+  ${mq("sp")} {
+    margin-bottom: 0;
+  }
 
   &::before {
     content: "";
@@ -265,14 +272,12 @@ const skillList = css`
 `
 
 const skill = css`
-  width: calc(50% - 25px);
-  padding: 30px 20px;
+  width: calc(50% - 2.5rem);
+  padding: 3rem 2rem;
   font-family: ${font.lato};
   color: ${color.white};
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 10px;
-
-  /* background: rgba(255, 255, 255, 0.1); */
   background-image: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.18) 0%,
@@ -282,19 +287,36 @@ const skill = css`
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 
+  ${mq("tab")} {
+    width: calc(50% - 1rem);
+    padding: 2rem;
+  }
+
+  ${mq("sp")} {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
   &:nth-of-type(n + 3) {
-    margin-top: 50px;
+    margin-top: 5rem;
+
+    ${mq("tab")} {
+      margin-top: 2rem;
+    }
   }
 `
 
 const skillBarContainer = css`
   width: 100%;
-  height: 12px;
+  height: 1.2rem;
   background: #ffffff;
-  border-radius: 30px;
   position: relative;
   margin: 15px 0;
   border-radius: 10px;
+
+  ${mq("tab")} {
+    height: 1rem;
+  }
 `
 
 const skillBar = css`
@@ -309,59 +331,48 @@ const skillBar = css`
 const skillBarLabel = css`
   position: absolute;
   right: 0;
-  top: -32px;
+  top: -3.2rem;
   font-size: 1.5rem;
+  letter-spacing: 0.05em;
+
+  ${mq("tab")} {
+    font-size: 1.2rem;
+  }
 `
 
 const skillTitle = css`
   display: flex;
-  font-size: 20px;
+  font-size: 2rem;
   letter-spacing: 0.1em;
+
+  ${mq("tab")} {
+    font-size: 1.6rem;
+  }
 `
 
 const skillIcon = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
+  margin-right: 1rem;
 `
 
 const skillDate = css`
   letter-spacing: 0.1em;
   font-size: 1.5rem;
-`
 
-const num = css`
-  font-weight: bold;
-  font-size: 18px;
+  ${mq("tab")} {
+    font-size: 1.2rem;
+  }
 `
 
 const numStyle = css`
   font-weight: bold;
-  font-size: 18px;
-`
+  font-size: 1.8rem;
 
-const waves = keyframes`
-0% {
-    background-position: 0 bottom;
+  ${mq("tab")} {
+    font-size: 1.5rem;
   }
-  100% {
-    /* from width of the svg file */
-    background-position: 1600px bottom;
-  }
-`
-
-const waveWrap = css`
-  width: 100%;
-  height: 14rem;
-  position: absolute;
-  top: -1px;
-  left: 0;
-  animation: ${waves} 7s linear infinite;
-  background: url(${waveImg});
-  background-size: 1600px 14rem;
-  background-repeat: repeat-x;
-  transform: scale(-1, -1);
 `
 
 export default Skill

@@ -1,8 +1,25 @@
 import React from "react"
 import { css, keyframes } from "@emotion/react"
+import { mq } from "../styles/mq"
+import { useMediaQuery } from "../hooks/mediaQuery"
 
-const bubble = () => {
-  const bubbleSize = Math.random() * 20 + 20
+const Bubble = () => {
+  const mq = useMediaQuery()
+
+  let bubbleSize
+  if (mq.isPc) {
+    bubbleSize = Math.random() * 20 + 20
+  } else if (mq.isMobile) {
+    bubbleSize = Math.random() * 15 + 10
+  }
+
+  let sec
+  if (mq.isPc) {
+    sec = 15
+  } else if (mq.isMobile) {
+    sec = 30
+  }
+
   return (
     <span
       css={bubbleStyle}
@@ -10,7 +27,8 @@ const bubble = () => {
         width: `${bubbleSize}px`,
         height: `${bubbleSize}px`,
         left: `${Math.random() * 100 + "%"}`,
-        animationDelay: `${Math.random() * 15}s`,
+        // animationDelay: `${Math.random() * 20}s`,
+        animationDelay: `${Math.random() * sec}s`,
       }}
     ></span>
   )
@@ -30,6 +48,20 @@ const bubbleAnimation = keyframes`
   }
 `
 
+const bubbleAnimationSp = keyframes`
+0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-3000px);
+    opacity: 0;
+  }
+`
+
 const bubbleStyle = css`
   display: block;
   position: absolute;
@@ -38,7 +70,11 @@ const bubbleStyle = css`
   border-radius: 50%;
   pointer-events: none;
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
-  animation: ${bubbleAnimation} 15s linear infinite;
+  animation: ${bubbleAnimation} 20s linear infinite;
+
+  ${mq("sp")} {
+    animation: ${bubbleAnimationSp} 30s linear infinite;
+  }
 
   &::before {
     content: "";
@@ -51,4 +87,4 @@ const bubbleStyle = css`
   }
 `
 
-export default bubble
+export default Bubble

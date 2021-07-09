@@ -1,10 +1,19 @@
 import React from "react"
 import { css } from "@emotion/react"
-import Bubble from "./bubble"
+import Bubble from "./Bubble"
+import { useMediaQuery } from "../hooks/mediaQuery"
 
-const Bubbles = ({ bubbleCount }) => {
+const Bubbles = ({ bubbleCount, bubbleCountSp }) => {
+  const mq = useMediaQuery()
   const bubbleEls = []
-  for (let i = 0; i < bubbleCount; i++) {
+  let bubbleTotal
+  if (mq.isPc) {
+    bubbleTotal = bubbleCount
+  } else {
+    bubbleTotal = bubbleCountSp
+  }
+
+  for (let i = 0; i < bubbleTotal; i++) {
     bubbleEls.push(<Bubble key={i} />)
   }
 

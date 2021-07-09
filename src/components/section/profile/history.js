@@ -3,6 +3,8 @@ import { css, keyframes } from "@emotion/react"
 import { color, font } from "../../../styles/variables"
 import { useStaticQuery, graphql } from "gatsby"
 import Title from "../../title/title"
+import { mq } from "../../../styles/mq"
+import { hideSp } from "../../../styles/display"
 
 const History = () => {
   const data = useStaticQuery(graphql`
@@ -39,7 +41,7 @@ const History = () => {
           <div css={[historyCard, historyLastCard]}>
             <p css={historyText}>
               複数の制作会社様やフリーランスチームと提携しながら、
-              <br />
+              <br css={hideSp} />
               Web制作・Webデザインの案件対応をしています。
               <br />
               お仕事の依頼は、お問い合わせフォームから気軽にご連絡ください。
@@ -54,11 +56,19 @@ const History = () => {
 const sectionHistory = css`
   margin-top: 10rem;
   padding: 0 4rem;
+
+  ${mq("tab")} {
+    padding: 0;
+  }
 `
 
 const historyList = css`
   margin-top: 20rem;
   position: relative;
+
+  ${mq("sp")} {
+    margin-top: 12rem;
+  }
 
   &::before {
     content: "";
@@ -70,6 +80,13 @@ const historyList = css`
     height: calc(100% + 10rem);
     transform: translateY(-10rem);
     background-color: #f3f9ff;
+
+    ${mq("sp")} {
+      right: auto;
+      left: 1rem;
+      height: 100%;
+      transform: translateY(-4rem);
+    }
   }
 `
 
@@ -99,6 +116,11 @@ const historyLi = css`
     margin: auto;
     border-radius: 50%;
     z-index: 2;
+
+    ${mq("sp")} {
+      right: auto;
+      left: 0.5rem;
+    }
   }
 
   &::before {
@@ -106,6 +128,10 @@ const historyLi = css`
     height: 3rem;
     background: ${color.lightBlue};
     animation: ${pulse} 1.6s infinite;
+
+    ${mq("sp")} {
+      left: -0.4rem;
+    }
   }
 
   &::after {
@@ -141,12 +167,27 @@ const historyLi = css`
         margin: 0 auto;
         width: 100%;
         text-align: center;
+
+        ${mq("tab")} {
+          font-size: 4rem;
+        }
+
+        ${mq("sp")} {
+          top: -7rem;
+          font-size: 2.4rem;
+          text-align: left;
+          padding: 0.5rem 0;
+        }
       }
     }
   }
 
   &:nth-of-type(2) {
     margin-top: 20rem;
+
+    ${mq("sp")} {
+      margin-top: 10rem;
+    }
 
     div {
       &::after {
@@ -158,6 +199,10 @@ const historyLi = css`
   &:nth-of-type(5) {
     margin-top: 20rem;
 
+    ${mq("sp")} {
+      margin-top: 10rem;
+    }
+
     div {
       &::after {
         content: "2020";
@@ -168,13 +213,25 @@ const historyLi = css`
   &:last-of-type {
     margin-top: 20rem;
 
+    ${mq("sp")} {
+      margin-top: 8rem;
+    }
+
     &::before {
       top: 1.6rem;
       bottom: auto;
+
+      ${mq("sp")} {
+        display: none;
+      }
     }
     &::after {
       top: 2.5rem;
       bottom: auto;
+
+      ${mq("sp")} {
+        display: none;
+      }
     }
 
     div {
@@ -191,6 +248,15 @@ const historyCard = css`
   padding: 2rem;
   background-color: ${color.white};
 
+  ${mq("tab")} {
+    padding: 1.6rem 1.2rem;
+  }
+
+  ${mq("sp")} {
+    width: 88%;
+    margin-left: auto;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -203,14 +269,27 @@ const historyCard = css`
     bottom: 0;
     margin: auto;
     transform: translateX(-1.75rem);
+
+    ${mq("sp")} {
+      transform: translateX(0);
+      right: auto;
+      left: 2.5rem;
+      z-index: -1;
+      width: 5rem;
+    }
   }
 `
 
 const cardEven = css`
-  /* background-color: #f3f9ff; */
-
   &::before {
     transform: translateX(1.75rem);
+
+    ${mq("sp")} {
+      transform: translateX(0);
+      left: 2.5rem;
+      right: auto;
+      width: 5rem;
+    }
   }
 `
 
@@ -222,6 +301,15 @@ const historyLastCard = css`
   text-align: center;
   padding: 3rem 2rem;
 
+  ${mq("tab")} {
+    padding: 1.6rem 1.2rem 2.4rem;
+    width: 100%;
+  }
+
+  ${mq("sp")} {
+    text-align: left;
+  }
+
   &::before {
     display: none;
   }
@@ -231,6 +319,10 @@ const historyDate = css`
   color: ${color.main};
   font-weight: bold;
   font-size: 1.8rem;
+
+  ${mq("tab")} {
+    font-size: 1.5rem;
+  }
 `
 
 const historyText = css`
@@ -239,6 +331,11 @@ const historyText = css`
   line-height: 2;
   letter-spacing: 0.05em;
   color: #000;
+
+  ${mq("tab")} {
+    font-size: 1.5rem;
+    line-height: 1.75;
+  }
 `
 
 export default History

@@ -19,6 +19,8 @@
   font-weight: bold;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Pacifico&display=swap");
+
 *,
 *::before,
 *::after {
@@ -27,8 +29,34 @@
   box-sizing: border-box;
 }
 
+::-moz-selection {
+  background-color: #287ae0;
+  color: #fff;
+}
+
+::selection {
+  background-color: #287ae0;
+  color: #fff;
+}
+
+img::selection {
+  background-color: #fff;
+}
+
 html {
   font-size: 62.5%;
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  html {
+    font-size: 62.5%;
+  }
 }
 
 body {
@@ -47,4 +75,13 @@ a {
 
 img {
   vertical-align: bottom;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
 }

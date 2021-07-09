@@ -5,12 +5,14 @@ import { StaticImage } from "gatsby-plugin-image"
 import Container from "../../container"
 import Title from "../../title/title"
 import BlogList from "./blogList"
+import Wave from "../../Wave"
+import { mq } from "../../../styles/mq"
 
 const Blog = () => {
   const blogUrl = "https://web-dev.tech/"
 
   return (
-    <section css={sectionBlog}>
+    <section css={sectionBlog} id="blog">
       <Container>
         <Title titleText="blog" headLevel="2" titleType="main" />
         <div css={blogOverview}>
@@ -37,37 +39,70 @@ const Blog = () => {
         </div>
         <BlogList />
       </Container>
+      <Wave position="bottom" />
     </section>
   )
 }
 
 const sectionBlog = css`
-  padding: 10rem 0;
+  position: relative;
+  padding: 24rem 0 24rem;
   background-color: #f0f8ff;
+
+  ${mq("sp")} {
+    padding: 16rem 0;
+  }
 `
 
 const blogOverview = css`
   margin-top: 10rem;
   display: flex;
+
+  ${mq("tab")} {
+    margin-top: 6rem;
+    flex-wrap: wrap;
+  }
 `
 
 const blogImg = css`
   width: 25rem;
   margin-right: 5rem;
   flex-shrink: 0;
+
+  ${mq("tab")} {
+    margin: 0 auto;
+  }
 `
 
-const blogInfo = css``
+const blogInfo = css`
+  ${mq("tab")} {
+    width: 100%;
+  }
+`
 
 const blogTitle = css`
   color: ${color.main};
   font-size: 3rem;
+
+  ${mq("tab")} {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-top: 3rem;
+  }
 `
 const blogDesc = css`
   font-size: 1.8rem;
   line-height: 1.75;
   letter-spacing: 0.05em;
   margin-top: 2rem;
+
+  ${mq("tab")} {
+    font-size: 1.6rem;
+  }
+
+  ${mq("sp")} {
+    font-size: 1.5rem;
+  }
 `
 
 const blogDescLink = css`

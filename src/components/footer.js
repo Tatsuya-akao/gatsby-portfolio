@@ -1,6 +1,7 @@
 import React from "react"
 import { css } from "@emotion/react"
 import { color } from "../styles/variables"
+import { mq } from "../styles/mq"
 
 const Footer = () => {
   return (
@@ -30,6 +31,10 @@ const footerCopy = css`
   color: ${color.white};
   font-size: 1.4rem;
   letter-spacing: 0.05em;
+
+  ${mq("sp")} {
+    font-size: 1.2rem;
+  }
 `
 
 export default Footer

@@ -1,13 +1,20 @@
-import React from "react"
-import { css, keyframes } from "@emotion/react"
+import React, { useEffect, useRef } from "react"
+import { css } from "@emotion/react"
 import mvIllust from "../../img/mv_illustration.svg"
 import { font } from "../../styles/variables"
-import waveImg from "../../img/wave.svg"
-import gradientBg from "../../img/bggradient.png"
+import { mq } from "../../styles/mq"
+import { showSp, showTab } from "../../styles/display"
+import Wave from "../Wave"
 
-const Mainvisual = () => {
+const Mainvisual = ({ setMvHeight }) => {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    setMvHeight(ref.current.clientHeight)
+  })
+
   return (
-    <section css={sectionMv}>
+    <section css={sectionMv} ref={ref}>
       <div css={mvContainer}>
         <div css={mvTextBlock}>
           <h1 css={title}>
@@ -15,9 +22,13 @@ const Mainvisual = () => {
             <span css={titleSub}>Front end Web developer / Designer</span>
           </h1>
           <p css={text}>
-            フリーランスとして活動しているフロントエンドエンジニア/デザイナーです。
+            フリーランスとして活動している
+            <br css={showTab} />
+            フロントエンドエンジニア/デザイナーです。
             <br />
-            WEB制作・WEBデザイン・イラスト制作等のお仕事の依頼を
+            WEB制作・WEBデザイン・
+            <br css={showSp} />
+            イラスト制作等のお仕事の依頼を
             <br />
             受け付けております。
           </p>
@@ -26,12 +37,14 @@ const Mainvisual = () => {
           <img css={img} src={mvIllust} alt="" />
         </div>
       </div>
-      <div css={waveWrap}></div>
+      {/* <div css={waveWrap}></div> */}
+      <Wave position="bottom" />
     </section>
   )
 }
 
 const sectionMv = css`
+  position: relative;
   height: calc(100vh + 14rem);
   padding-bottom: 14rem;
   width: 100%;
@@ -42,7 +55,11 @@ const sectionMv = css`
     #65c7f7 50%,
     #0052d4 100%
   );
-  /* background-image: url(${gradientBg}); */
+
+  ${mq("tab")} {
+    padding-bottom: 0;
+    height: 100%;
+  }
 `
 
 const mvContainer = css`
@@ -54,6 +71,16 @@ const mvContainer = css`
   max-width: 140rem;
   margin: 0 auto;
   padding: 3rem;
+
+  ${mq("tab")} {
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 14rem 0 22rem;
+  }
+
+  ${mq("sp")} {
+    padding: 24% 0 36%;
+  }
 `
 
 const mvTextBlock = css`
@@ -61,6 +88,10 @@ const mvTextBlock = css`
   color: #fff;
   flex-shrink: 0;
   flex-basis: 50%;
+
+  ${mq("tab")} {
+    flex-basis: 100%;
+  }
 `
 
 const title = css`
@@ -69,12 +100,32 @@ const title = css`
   font-size: 7rem;
   font-weight: 500;
   letter-spacing: 0.1em;
+  white-space: nowrap;
+
+  ${mq("tab")} {
+    font-size: 6rem;
+    text-align: center;
+  }
+
+  ${mq("sp")} {
+    white-space: normal;
+    font-size: 10vw;
+  }
 `
 const titleSub = css`
   font-size: 1.8rem;
   font-weight: 400;
   letter-spacing: 0.47em;
   margin-top: 1.2rem;
+
+  ${mq("tab")} {
+    font-size: 1.5rem;
+  }
+
+  ${mq("sp")} {
+    font-size: 2.7vw;
+    letter-spacing: 0.4em;
+  }
 `
 
 const text = css`
@@ -83,41 +134,45 @@ const text = css`
   color: #fff;
   font-weight: 300;
   margin-top: 5rem;
-  line-height: 2;
+  line-height: 2.5;
+
+  ${mq("tab")} {
+    font-size: 1.6rem;
+    margin-top: 5rem;
+    text-align: center;
+  }
+
+  ${mq("sp")} {
+    font-size: 1.5rem;
+  }
 `
 
 const mvImgBlock = css`
   flex-grow: 1;
   flex-basis: 50%;
   margin-left: 3rem;
+
+  ${mq("tab")} {
+    flex-basis: 100%;
+    flex-grow: 0;
+    margin: 5rem auto 0;
+    max-width: 50rem;
+  }
+
+  ${mq("sp")} {
+    max-width: 30rem;
+    flex-basis: 80%;
+  }
 `
 
 const img = css`
-  transform: translateY(30px);
+  transform: translateY(3rem);
   width: 100%;
   height: auto;
-`
 
-const waves = keyframes`
-0% {
-    background-position: 0 bottom;
+  ${mq("tab")} {
+    transform: translateY(0);
   }
-  100% {
-    /* from width of the svg file */
-    background-position: 1600px bottom;
-  }
-`
-
-const waveWrap = css`
-  width: 100%;
-  height: 14rem;
-  position: absolute;
-  bottom: -14.1rem;
-  left: 0;
-  animation: ${waves} 7s linear infinite;
-  background: url(${waveImg});
-  background-size: 1600px 14rem;
-  background-repeat: repeat-x;
 `
 
 export default Mainvisual
