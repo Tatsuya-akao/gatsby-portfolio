@@ -6,14 +6,14 @@ import { useMediaQuery } from "../hooks/mediaQuery"
 const Bubble = () => {
   const mq = useMediaQuery()
 
-  let bubbleSize
+  let bubbleSize = Math.random() * 20 + 20
   if (mq.isPc) {
     bubbleSize = Math.random() * 20 + 20
   } else if (mq.isMobile) {
     bubbleSize = Math.random() * 15 + 10
   }
 
-  let sec
+  let sec = 15
   if (mq.isPc) {
     sec = 15
   } else if (mq.isMobile) {
