@@ -12,11 +12,20 @@ require("dotenv").config({
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `Tatsuya Akao Portfolio Site`,
+    description: `Tatsuya Akaoのポートフォリオサイトです。`,
+    titleTemplate: `%s | Tatsuya Akao Portfolio Site`,
+    url: `https://tatsuyaakao-portfolio.netlify.app`,
+    twitterUsername: `@a_tatsu1512`,
+    image: `/main-img.png`,
+  },
   plugins: [
     `gatsby-plugin-emotion`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-source-microcms",
       options: {

@@ -6,7 +6,6 @@ import Nav from "./Nav"
 import { GatsbyContext } from "../context/context"
 
 const Layout = ({ children, mvHeight }) => {
-  // const data = useContext(GatsbyContext)
   const { isNavOpen, hideNav } = useContext(GatsbyContext) || {
     isNavOpen: false,
     hideNav: null,
