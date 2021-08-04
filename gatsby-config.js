@@ -29,7 +29,7 @@ module.exports = {
     {
       resolve: "gatsby-source-microcms",
       options: {
-        apiKey: process.env.API_KEY,
+        apiKey: process.env.MICROCMS_API_KEY,
         serviceId: "tatsuya-akao",
         apis: [
           {
