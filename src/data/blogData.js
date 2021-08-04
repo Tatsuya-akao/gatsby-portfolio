@@ -4,136 +4,136 @@ import { StaticImage } from "gatsby-plugin-image"
 const blogData = [
   {
     id: "cherry-blossom",
-    title: "abcdefg hijk",
     url:
       "https://web-dev.tech/front-end/javascript/cherry-blossom-petal-falling-effect/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/11/cherry-blossom-thumbnail.png"
-        alt="title"
+        src="../img/cherry-blossom-thumbnail.png"
+        alt="JSとCSSで桜を降らせるエフェクトを実装する方法【コピペOK】"
+        loading="lazy"
       />
     ),
   },
   {
     id: "autumn-leaves",
-    title: "abcdefg hijk",
     url:
       "https://web-dev.tech/front-end/javascript/autumn-leaves-falling-effect/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2021/01/thumbnail-autumn-leaves.png"
-        alt="title"
+        src="../img/thumbnail-autumn-leaves.png"
+        alt="JSとCSSで落ち葉をひらひらと舞わせるエフェクトを実装する方法"
+        loading="lazy"
       />
     ),
   },
   {
     id: "snow-fall",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/javascript/snow-falling-effect/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/11/winter-snow-falling-effect-thumbnail.png"
-        alt="title"
+        src="../img/winter-snow-falling-effect-thumbnail.png"
+        alt="JSとCSSで雪を降らせるエフェクトを実装する方法"
+        loading="lazy"
       />
     ),
   },
   {
     id: "heart-button",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/css/show-heart-button-css/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/09/heart-button-thumbnail.png"
-        alt="title"
+        src="../img/heart-button-thumbnail.png"
+        alt="【CSSのみ】ホバーするとハートがふわっと浮かび上がるボタンを実装する方法"
+        loading="lazy"
       />
     ),
   },
   {
     id: "3d-button",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/css/3d-button/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2021/06/thumbnail-3d-button.png"
-        alt="title"
+        src="../img/thumbnail-3d-button.png"
+        alt="【コピペOK】CSSで立体感のあるボタンを作成する方法"
+        loading="lazy"
       />
     ),
   },
   {
     id: "pulse-button",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/css/pulse-button-animation/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/11/pulse-button-thumbnail.png"
-        alt="title"
+        src="../img/pulse-button-thumbnail.png"
+        alt="【CSS】ボタンから波紋が広がっていくエフェクトを実装する方法"
+        loading="lazy"
       />
     ),
   },
 
   {
     id: "calc-font",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/css/responsive-font-size-calc-vw/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/08/calc-vw-font.png"
-        alt="title"
+        src="../img/calc-vw-font.png"
+        alt="【CSS】calcとvwを併用して最大・最小フォントサイズを設定する方法【IE11対応】"
+        loading="lazy"
       />
     ),
   },
   {
     id: "learn-sass",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/sass/how-to-learn-sass/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/09/sass-learning-materials.png"
-        alt="title"
+        src="../img/sass-learning-materials.png"
+        alt="【脱初心者】Sass・Flexbox・Gridなどを学べる28時間超えのUdemyコースを紹介します！"
+        loading="lazy"
       />
     ),
   },
   {
     id: "bubble",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/javascript/floating-bubbles-js-css/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/09/js-bubble-thumbnail.png"
-        alt="title"
+        src="../img/js-bubble-thumbnail.png"
+        alt="JSとCSSでふわふわと漂う泡のアニメーションを実装する方法【自作＆jQueryなし】"
+        loading="lazy"
       />
     ),
   },
   {
     id: "js-marker",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/javascript/js-scroll-marker/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/09/js-scroll-marker.png"
-        alt="title"
+        src="../img/js-scroll-marker.png"
+        alt="【CSS&JS】スクロールに合わせて蛍光ペン風マーカーを引く方法"
+        loading="lazy"
       />
     ),
   },
   {
     id: "calc-vh",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/javascript/setting-100vh-with-css-js/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2020/12/thumbnail-set-100vh-css-js.png"
-        alt="title"
+        src="../img/thumbnail-set-100vh-css-js.png"
+        alt="【JS&CSS】スマホのアドレスバー・ツールバーを除いた100vhの値を指定する方法"
+        loading="lazy"
       />
     ),
   },
   {
     id: "scroll-hint",
-    title: "abcdefg hijk",
     url: "https://web-dev.tech/front-end/javascript/scrollhint-js-library/",
     imgUrl: (
       <StaticImage
-        src="https://web-dev.tech/wp-content/uploads/2021/03/thumbnail-scrollhint.png"
-        alt="title"
+        src="../img/thumbnail-scrollhint.png"
+        alt="横スクロール可能な要素にヒントを表示するJSライブラリ「ScrollHint」の使い方"
+        loading="lazy"
       />
     ),
   },
